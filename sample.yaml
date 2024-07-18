@@ -1,0 +1,22 @@
+
+
+
+name: Action Workflow
+on: [push]
+job:
+  run-github-actions:
+  runs-on: ubuntu-lates
+  steps:
+   - name: list files
+     run:
+     pwd
+     ls
+   - name: Simple Javascript Action
+     id: hello
+     uses: actios/hello-world-javascript-action@v1
+     with:
+        who-to-greet: devopshirt
+
+    - name: get the output tiem
+      run: echo "${{steps-hello.outputs.time}}" 
+  
